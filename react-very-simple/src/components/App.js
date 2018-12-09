@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import { changeValue } from '../actions/actions';
 
 class App extends Component {
+  state = {
+    inputValue: ''
+  }
+
+  onInputChange = (event) => {
+    this.setState({
+      inputValue: event.target.value
+    })
+  }
+
   render() {
-    console.log(this.props);
-    const { value } = this.props;
+    const { value, onChangeValue } = this.props;
+    const { inputValue } = this.state;
+
     return (
       <div>
-        My First React App {value}
+        <div>
+          My First React App shows the value: {value}
+        </div>
+        <div>
+          <input 
+            onChange={this.onInputChange}
+            type="text"
+            value={inputValue}
+            />
+          <button onClick={() => onChangeValue(inputValue)}>Click Me</button>
+        </div>
       </div>
     );
   }
@@ -18,4 +40,8 @@ const mapStateToProps = (state) => ({
   value: state.mySimpleReducer.value
 });
 
-export default connect(mapStateToProps) (App);
+const mapDispatchToProps = (dispatch) => ({
+  onChangeValue: (value) => dispatch(changeValue(value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
