@@ -24,6 +24,7 @@ class App extends Component {
           My First React App shows the value: {value}
         </div>
         <div>
+          <label>Insert Item</label>
           <input 
             onChange={this.onInputChange}
             type="text"
