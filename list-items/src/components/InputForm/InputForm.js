@@ -18,7 +18,6 @@ class InputForm extends Component {
 
     render () {
         let { value } = this.state;
-        console.log(value);
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

@@ -9,7 +9,7 @@ class App extends Component {
     filterValue: ''
   }
 
-  myCallBack = (callbackValue) => {
+  inputFormCallback = (callbackValue) => {
     let { listOfItems } = this.state;
     listOfItems.push(callbackValue);
 
@@ -45,7 +45,7 @@ class App extends Component {
         <div className="title">
           My React App
         </div>
-        <InputForm callbackFromParent={this.myCallBack}/>
+        <InputForm callbackFromParent={this.inputFormCallback}/>
         <div className="form-group">
           <label htmlFor="my-filter-value">Filter</label>
           <input type="text" className="form-control" id="my-filter-value" value={filterValue} onChange={this.handleFilterChange}/>
