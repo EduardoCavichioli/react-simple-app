@@ -13,12 +13,25 @@ class FilterInput extends Component {
     });
   }
 
+  handleClearFilter = (event) =>{
+    this.props.callbackFromParent('');
+    this.setState({
+      filter: ''
+    });
+    event.preventDefault();
+  }
+
   render() {
     let { filter } = this.state;
     return (
-      <div className="form-group">
-        <label htmlFor="my-filter-value">Filter</label>
-        <input type="text" className="form-control" id="my-filter-value" value={filter} onChange={this.handleFilterChange}/>
+      <div>
+        <form>
+          <div className="form-group">
+            <label htmlFor="my-filter-value">Filter</label>
+            <input type="text" className="form-control" id="my-filter-value" value={filter} onChange={this.handleFilterChange}/>
+          </div>
+          <button className="btn btn-secondary" onClick={this.handleClearFilter}>Clear filter</button>
+        </form>
       </div>
     )
   }

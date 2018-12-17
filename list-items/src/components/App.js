@@ -26,6 +26,13 @@ class App extends Component {
     })
   }
 
+  filteredListCallback = (callbackValue) => {
+    console.log(callbackValue);
+    this.setState({
+      listOfItems: callbackValue
+    })
+  }
+
   render() {
     let { listOfItems, filterValue } = this.state;
     return (
@@ -33,7 +40,7 @@ class App extends Component {
         <h2>My React App</h2>
         <InputForm callbackFromParent={this.inputFormCallback}/>
         <FilterInput callbackFromParent={this.filterInputCallback}/>
-        <FilteredList list={listOfItems} filter={filterValue}/>
+        <FilteredList list={listOfItems} filter={filterValue} callbackFromParent={this.filteredListCallback}/>
       </div>
     );
   }

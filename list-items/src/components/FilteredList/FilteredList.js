@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 class FilteredList extends Component {
 
+  handleRemoveClick = (value) => {
+    let { list } = this.props;
+    let updatedList = list.filter(item => !item.includes(value));
+    this.props.callbackFromParent(updatedList);
+  }
+
   checkFilter = (value) => {
     let { filter } = this.props;
 
@@ -19,12 +25,12 @@ class FilteredList extends Component {
 
     let filteredList = list.filter(this.checkFilter);
     return (
-      <div>
-        <ul>
-            {filteredList.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+      <div>  
+        {filteredList.map((item, index) => (
+          <div key={index}>
+            <button className="btn btn-light" onClick={() => this.handleRemoveClick(item)}>{item}</button>
+          </div>
+        ))}
       </div>
     )
   }
