@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import InputForm from './InputForm/InputForm';
+
 class App extends Component {
   state = {
     listOfItems: ["banana","maca"],
-    inputValue: '',
     filterValue: ''
   }
 
-  handleInputChange = (event) => {
+  myCallBack = (callbackValue) => {
+    let { listOfItems } = this.state;
+    listOfItems.push(callbackValue);
+
     this.setState({
-      inputValue: event.target.value
+      listOfItems: listOfItems
     })
   }
 
@@ -18,16 +22,6 @@ class App extends Component {
     this.setState({
       filterValue: event.target.value
     })
-  }
-
-  handleSubmit = (event) => {
-    let { listOfItems, inputValue } = this.state;
-    listOfItems.push(inputValue);
-
-    this.setState({
-      listOfItems: listOfItems
-    })
-    event.preventDefault();
   }
 
   checkFilter = (value) => {
@@ -43,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    let { listOfItems, inputValue, filterValue } = this.state;
+    let { listOfItems, filterValue } = this.state;
 
     let filteredList = listOfItems.filter(this.checkFilter);
     return (
@@ -51,13 +45,7 @@ class App extends Component {
         <div className="title">
           My React App
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="my-input-value">Value</label>
-            <input type="text" className="form-control" id="my-input-value" value={inputValue} onChange={this.handleInputChange} />
-          </div>
-          <button className="btn btn-primary" type="submit">Submit</button>
-        </form>
+        <InputForm callbackFromParent={this.myCallBack}/>
         <div className="form-group">
           <label htmlFor="my-filter-value">Filter</label>
           <input type="text" className="form-control" id="my-filter-value" value={filterValue} onChange={this.handleFilterChange}/>
