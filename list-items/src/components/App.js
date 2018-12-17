@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import InputForm from './InputForm/InputForm';
+import FilteredList from './FilteredList/FilteredList';
 
 class App extends Component {
   state = {
@@ -24,22 +25,8 @@ class App extends Component {
     })
   }
 
-  checkFilter = (value) => {
-    let { filterValue } = this.state;
-
-    if (filterValue === '') {
-      return true;
-    } else if (value.includes(filterValue)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   render() {
     let { listOfItems, filterValue } = this.state;
-
-    let filteredList = listOfItems.filter(this.checkFilter);
     return (
       <div className="App">
         <div className="title">
@@ -50,13 +37,7 @@ class App extends Component {
           <label htmlFor="my-filter-value">Filter</label>
           <input type="text" className="form-control" id="my-filter-value" value={filterValue} onChange={this.handleFilterChange}/>
         </div>
-        <div>
-          <ul>
-            {filteredList.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
+        <FilteredList list={listOfItems} filter={filterValue}/>
       </div>
     );
   }
