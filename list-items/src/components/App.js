@@ -3,6 +3,7 @@ import './App.css';
 
 import InputForm from './InputForm/InputForm';
 import FilteredList from './FilteredList/FilteredList';
+import FilterInput from './FilterInput/FilterInput';
 
 class App extends Component {
   state = {
@@ -19,9 +20,9 @@ class App extends Component {
     })
   }
 
-  handleFilterChange = (event) => {
+  filterInputCallback = (callbackValue) => {
     this.setState({
-      filterValue: event.target.value
+      filterValue: callbackValue
     })
   }
 
@@ -29,14 +30,9 @@ class App extends Component {
     let { listOfItems, filterValue } = this.state;
     return (
       <div className="App">
-        <div className="title">
-          My React App
-        </div>
+        <h2>My React App</h2>
         <InputForm callbackFromParent={this.inputFormCallback}/>
-        <div className="form-group">
-          <label htmlFor="my-filter-value">Filter</label>
-          <input type="text" className="form-control" id="my-filter-value" value={filterValue} onChange={this.handleFilterChange}/>
-        </div>
+        <FilterInput callbackFromParent={this.filterInputCallback}/>
         <FilteredList list={listOfItems} filter={filterValue}/>
       </div>
     );
