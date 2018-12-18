@@ -27,7 +27,6 @@ class App extends Component {
   }
 
   filteredListCallback = (callbackValue) => {
-    console.log(callbackValue);
     this.setState({
       listOfItems: callbackValue
     })
