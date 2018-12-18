@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class App extends Component {
   state = {
-    federalStates: ['RS','SP','SC'],
+    federalStates: ['','RS','SP','SC'],
     email: '',
     pwd: '',
     add1: '',
