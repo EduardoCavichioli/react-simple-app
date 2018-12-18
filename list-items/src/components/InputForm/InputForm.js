@@ -22,24 +22,22 @@ class InputForm extends Component {
   render() {
     let { value } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-group mb-3">
-            <input 
-              type="text" 
-              className="form-control"
-              onChange={this.handleInputChange}
-              value={value}
-              placeholder="Value"
-              aria-label="value"
-              aria-describedby="value-input"
-              />
-            <div className="input-group-append">
-              <button className="btn btn-outline-primary" type="submit">Submit</button>
-            </div>
+      <form onSubmit={this.handleSubmit}>
+        <div className="input-group mb-3">
+          <input 
+            type="text" 
+            className="form-control"
+            onChange={this.handleInputChange}
+            value={value}
+            placeholder="Value"
+            aria-label="value"
+            aria-describedby="value-input"
+            />
+          <div className="input-group-append">
+            <button className="btn btn-outline-primary" type="submit">Submit</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     )
   }
 
