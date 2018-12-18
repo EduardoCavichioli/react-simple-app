@@ -5,8 +5,8 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        My React Page
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <span className="navbar-brand">My React Page</span>
         <button
           className="navbar-toggler" 
           type="button" 
