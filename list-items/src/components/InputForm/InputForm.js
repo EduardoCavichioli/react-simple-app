@@ -34,7 +34,7 @@ class InputForm extends Component {
             aria-describedby="value-input"
             />
           <div className="input-group-append">
-            <button className="btn btn-outline-primary" type="submit">Submit</button>
+            <button className="btn btn-outline-primary" type="submit">Add</button>
           </div>
         </div>
       </form>
