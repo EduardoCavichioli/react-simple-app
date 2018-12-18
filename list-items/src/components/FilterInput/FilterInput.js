@@ -25,10 +25,10 @@ class FilterInput extends Component {
     let { filter } = this.state;
     return (
       <div>
-        <form>
+        <form className="form-inline">
           <div className="form-group">
             <label htmlFor="my-filter-value">Filter</label>
-            <input type="text" className="form-control" id="my-filter-value" value={filter} onChange={this.handleFilterChange}/>
+            <input type="text" className="form-control mx-sm-3" id="my-filter-value" value={filter} onChange={this.handleFilterChange}/>
           </div>
           <button className="btn btn-secondary" onClick={this.handleClearFilter}>Clear filter</button>
         </form>

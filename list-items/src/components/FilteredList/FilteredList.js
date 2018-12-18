@@ -25,10 +25,10 @@ class FilteredList extends Component {
 
     let filteredList = list.filter(this.checkFilter);
     return (
-      <div>  
+      <div className="list-group">  
         {filteredList.map((item, index) => (
           <div key={index}>
-            <button className="btn btn-light" onClick={() => this.handleRemoveClick(item)}>{item}</button>
+            <button className="list-group-item list-group-item-action" onClick={() => this.handleRemoveClick(item)}>{item}</button>
           </div>
         ))}
       </div>

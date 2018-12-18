@@ -37,9 +37,21 @@ class App extends Component {
     return (
       <div className="App">
         <h2>My React App</h2>
-        <InputForm callbackFromParent={this.inputFormCallback}/>
-        <FilterInput callbackFromParent={this.filterInputCallback}/>
-        <FilteredList list={listOfItems} filter={filterValue} callbackFromParent={this.filteredListCallback}/>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <InputForm callbackFromParent={this.inputFormCallback}/>
+            </div>
+            <div className="col-md-6">
+              <FilterInput callbackFromParent={this.filterInputCallback}/>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <FilteredList list={listOfItems} filter={filterValue} callbackFromParent={this.filteredListCallback}/>  
+          </div>
+        </div>
       </div>
     );
   }
