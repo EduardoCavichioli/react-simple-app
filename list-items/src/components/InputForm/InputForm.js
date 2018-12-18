@@ -23,19 +23,20 @@ class InputForm extends Component {
     let { value } = this.state;
     return (
       <div>
-        <form className="form-inline" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="my-input-value">Value</label>
-            <input 
-              type="text"
-              className="form-control mx-sm-3"
-              id="my-input-value"
-              onChange={this.handleInputChange}
-              value={value}
-              />
-          </div> 
-          <button className="btn btn-primary" type="submit">Submit</button>
-        </form>
+        <div className="input-group mb-3">
+          <input 
+            type="text" 
+            className="form-control"
+            onChange={this.handleInputChange}
+            value={value}
+            placeholder="Value"
+            aria-label="value"
+            aria-describedby="value-input"
+            />
+          <div className="input-group-append">
+            <button className="btn btn-outline-primary" onClick={this.handleSubmit}>Add</button>
+          </div>
+        </div>
       </div>
     )
   }

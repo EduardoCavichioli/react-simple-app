@@ -36,7 +36,9 @@ class App extends Component {
     let { listOfItems, filterValue } = this.state;
     return (
       <div className="App">
-        <h2>My React App</h2>
+        <div>
+          <h2>My React App</h2>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
