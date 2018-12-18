@@ -4,6 +4,7 @@ import './App.css';
 import InputForm from './InputForm/InputForm';
 import FilteredList from './FilteredList/FilteredList';
 import FilterInput from './FilterInput/FilterInput';
+import Navbar from './Navbar/Navbar';
 
 class App extends Component {
   state = {
@@ -36,9 +37,7 @@ class App extends Component {
     let { listOfItems, filterValue } = this.state;
     return (
       <div className="App">
-        <div>
-          <h2>My React App</h2>
-        </div>
+        <Navbar />
         <div className="container">
           <div className="row">
             <div className="col-md-6">
